@@ -1,0 +1,116 @@
+{
+    "scripts": {
+        "start": "webpack-dev-server --env.dev --mode development --hot --inline",
+        "build": "rimraf ./dist && webpack --mode production",
+        "jest": "jest --coverage",
+        "jest:watch": "jest --watch",
+        "lint:ts": "prettier --write --list-different \"src/**/*.tsx\"",
+        "lint:scss": "prettier --write --list-different \"src/**/*.scss\"",
+        "lint": "npm run lint:ts && npm run lint:scss",
+        "lint:ci:ts": "prettier --list-different \"src/**/*.tsx\"",
+        "lint:ci:scss": "prettier --list-different \"src/**/*.scss\"",
+        "lint:ci": "npm run lint:ci:ts && npm run lint:ci:scss",
+        "test": "npm run lint && npm run jest"
+    },
+    "dependencies": {
+        "normalize.css": "^8.0.0",
+        "react": "^16.3.1",
+        "react-dom": "^16.3.1",
+        "react-redux": "^5.0.7",
+        "redux-thunk": "^2.2.0"
+    },
+    "devDependencies": {
+        "@types/enzyme": "^3.1.6",
+        "@types/jest": "^22.2.2",
+        "@types/node": "^4.0.35",
+        "@types/react": "^16.3.5",
+        "@types/react-dom": "^16.0.4",
+        "@types/react-hot-loader": "^3.0.6",
+        "@types/react-redux": "^5.0.14",
+        "@types/react-test-renderer": "^16.0.0",
+        "@types/redux-mock-store": "^0.0.13",
+        "@types/redux-thunk": "^2.1.0",
+        "@types/sinon": "^4.1.3",
+        "@types/webpack": "^3.8.2",
+        "@types/webpack-dev-server": "^2.9.2",
+        "@types/webpack-env": "^1.13.3",
+        "awesome-typescript-loader": "^4.0.1",
+        "css-loader": "^0.28.11",
+        "enzyme": "^3.3.0",
+        "enzyme-adapter-react-16": "^1.1.1",
+        "extract-text-webpack-plugin": "next",
+        "file-loader": "^1.1.6",
+        "html-webpack-plugin": "^3.2.0",
+        "jest": "^22.4.3",
+        "node-sass": "^4.8.3",
+        "offline-plugin": "^4.9.0",
+        "prettier": "^1.11.1",
+        "react-hot-loader": "^4.0.1",
+        "react-test-renderer": "^16.2.0",
+        "redux-mock-store": "^1.4.0",
+        "rimraf": "^2.6.2",
+        "sass-loader": "^6.0.7",
+        "sinon": "^4.1.5",
+        "style-loader": "^0.20.3",
+        "ts-jest": "^22.4.2",
+        "ts-loader": "^4.1.0",
+        "tslib": "^1.9.0",
+        "tslint": "^5.9.1",
+        "tslint-react": "^3.5.1",
+        "typescript": "^2.8.1",
+        "webpack": "^4.5.0",
+        "webpack-cli": "^2.0.14",
+        "webpack-dev-server": "^3.1.1",
+        "webpack-md5-hash": "^0.0.6"
+    },
+    "jest": {
+        "transform": {
+            "^.+\\.tsx?$": "ts-jest"
+        },
+        "setupFiles": [
+            "<rootDir>/test-setup/test-setup.js"
+        ],
+        "testPathIgnorePatterns": [
+            "<rootDir>/node_modules/",
+            "<rootDir>/test-setup/"
+        ],
+        "collectCoverageFrom": [
+            "src/**/*.{ts,tsx}",
+            "!src/**/*.{d.ts,d.tsx}",
+            "!src/**/index.tsx",
+            "!<rootDir>/node_modules/",
+            "!<rootDir>/test-setup",
+            "!src/app.tsx",
+            "!src/store.tsx"
+        ],
+        "moduleNameMapper": {
+            "\\.(css|scss)$": "<rootDir>/node_modules/jest-css-modules",
+            "\\.actions$": "<rootDir>/src/actions",
+            "\\.reducers$": "<rootDir>/src/reducers"
+        },
+        "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js",
+            "jsx",
+            "json",
+            "node"
+        ],
+        "coverageReporters": [
+            "json",
+            "lcov",
+            "text",
+            "text-summary",
+            "html"
+        ],
+        "coverageThreshold": {
+            "global": {
+                "branches": 100,
+                "functions": 100,
+                "lines": 100,
+                "statements": 100
+            }
+        }
+    }
+}
